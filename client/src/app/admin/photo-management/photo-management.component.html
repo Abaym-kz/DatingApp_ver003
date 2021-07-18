@@ -1,14 +1,11 @@
 <div class="row">
-    <table class="table">
-        <tr>
-            <th style="width: 30%;">Username</th>
-            <th style="width: 40%;">Active roles</th>
-            <th style="width: 30%;">Username</th>
-        </tr>
-        <tr *ngFor="let user of users">
-            <td>{{user.username}}</td>
-            <td>{{user.roles}}</td>
-            <td><button class="btn btn-info">Edit roles</button></td>
-        </tr>
-    </table>
+    <div class="col-sm-2" *ngFor="let photo of photos">
+        <h4>{{photo.username}}</h4>
+        <img src='{{photo.url}}' class='img-thumbnail p-1' alt='photo.username'>
+
+        <div class="text-center">
+            <button class="btn btn-sm btn-success mr-1" (click)='approvePhoto(photo.id)'>Approve</button>
+            <button class="btn btn-sm btn-danger" (click)='rejectPhoto(photo.id)'>Reject</button>
+        </div>
+    </div>
 </div>
