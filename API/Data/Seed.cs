@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
@@ -31,13 +30,9 @@ namespace API.Data
             {
                 await roleManager.CreateAsync(role);
             }
-            foreach (var user in users)
+
+            foreach (var user in users) 
             {
-                user.UserName = user.UserName.ToLower();
-                await userManager.CreateAsync(user, "Pa$$w0rd");
-                await userManager.AddToRoleAsync(user, "Member");
-            }
-            foreach (var user in users) {
                 user.Photos.First().IsApproved = true;
                 user.UserName = user.UserName.ToLower();
                 await userManager.CreateAsync(user, "Pa$$w0rd");
